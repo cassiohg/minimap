@@ -18,7 +18,9 @@ public class BaseActivity extends AppCompatActivity {
 
 //    public UserData userData = new UserData(this);
 
+
     public static final String PREFS_NAME = "userData";
+    SharedPreferences settings;
 
     public Double latestLatitude;
     public Double latestLongitude;
@@ -58,10 +60,14 @@ public class BaseActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        settings = getSharedPreferences(PREFS_NAME, 0);
+
+//        webb.setBaseUri(settings.getString("serverUrl", "http://10.0.0.168:3000"));
+
+    }
 
 }

@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+import org.json.JSONObject;
+
 /**
  * Created by cassiohg on 7/17/15.
  */
@@ -31,7 +33,6 @@ public class WelcomeActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         simSerialNumber = settings.getString("simSerialNumber", "");
         simCountryISO = settings.getString("simCountryISO", "");
 
@@ -61,17 +62,17 @@ public class WelcomeActivity extends BaseActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             // fetch data
-                // go on cloud to check.
-                // receive 'user already exists' or 'just created new user'.
-                // if user has already been created,
-                    // download user's preferences.
-                // else
-                    // save user on 'sharedPreferences',
+            // go on cloud to check.
+            // receive 'user already exists' or 'just created new user'.
+            // if user has already been created,
+            // download user's preferences.
+            // else
+            // save user on 'sharedPreferences',
 //                SharedPreferences.Editor editor = settings.edit();
 //                editor.putString("simSerialNumber", simSerialNumber);
 //                editor.putString("simCountryISO", simCountryISO);
 //                editor.commit();
-                // move to next activity
+            // move to next activity
         } else {
             // display error
         }
